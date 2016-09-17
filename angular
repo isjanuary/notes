@@ -1,0 +1,20 @@
+expression error:
+description:
+    angular.js:9503 Error: [$parse:lexerr] Lexer Error: Unexpected next character  at columns 0-0 [#] in expression [#].
+http://errors.angularjs.org/1.2.13/$parse/lexerr?p0=Unexpected%20next%20character%20&p1=s%200-0%20%5B%23%5D&p2=%23
+    at angular.js:78
+    at Lexer.throwError (angular.js:9740)
+    at Lexer.lex (angular.js:9694)
+    at Parser.parse (angular.js:9920)
+    at angular.js:10763
+    at Object.fn (index.js:45)
+    at Scope.$digest (angular.js:11898)
+    at Scope.$apply (angular.js:12151)
+    at HTMLInputElement.listener (angular.js:16215)
+    at angular.js:2626
+    
+    
+    It's all about limitation of $parse and angular.js expression
+  ref:  http://salesforce.stackexchange.com/questions/97907/error-parsesyntax-syntax-error-token-is-an-unexpected-token-at-column
+        https://github.com/angular/angular.js/issues/13771  
+  
