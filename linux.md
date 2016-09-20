@@ -188,6 +188,7 @@ All icons in ~ directory are shown in Desktop
 
 
 install gitlab client
-    [see this](https://about.gitlab.com/downloads/#centos7)
+    [see this](https://about.gitlab.com/downloads/#centos7)  
 
 
+[makefile](http://blog.csdn.net/haoel/article/details/2886)
