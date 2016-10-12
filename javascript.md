@@ -1,4 +1,5 @@
 js type reliable check, see [here](toddmotto.com/understanding-javascript-type-and-reliable-type-checking)  
+
 explanation of prototype and __proto__:
 * [ref1](stackoverflow.com/questions/9959727/proto-vs-prototype-in-javascript)
 * [ref2](dmitrysoshnikov.com/ecmascript/javascript-the-core)
