@@ -129,12 +129,7 @@ local mirror of npm
 
 
 
-|-------------------------------------|
-|                                     |
-|            jquery part              |
-|                                     |
-|-------------------------------------|
-
+###jquery part
     .data() vs .attr()
 
     The confusion between .data() and .attr() comes from data-x-x-x-... attribute.
@@ -166,3 +161,18 @@ how to use node.js on windows
     https://github.com/tjanczuk/iisnode
     http://stackoverflow.com/questions/9587665/nodejs-cannot-find-installed-module-on-windows?answertab=active#tab-top
     https://coderwall.com/p/mbov6w/running-nodejs-and-express-on-windows
+
+
+
+###switch node versions
+[install nvm](https://github.com/creationix/nvm#installation)
+* useful nvm command
+```
+nvm --version
+nvm ls
+nvm use node vx.x.x
+nvm install node vx.x.x
+```
+* possible problems  
+** permission denied: switch to root account
+** command nvm not found: if `~/.zshrc`/`~/.bash_profile`/`~/.bashrc` configured, try restarting terminal
