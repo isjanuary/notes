@@ -1,45 +1,47 @@
 js type reliable check, see [here](toddmotto.com/understanding-javascript-type-and-reliable-type-checking)  
 
 explanation of prototype and __proto__:
-* [ref1](stackoverflow.com/questions/9959727/proto-vs-prototype-in-javascript)
-* [ref2](dmitrysoshnikov.com/ecmascript/javascript-the-core)
+* [stackoverflow](stackoverflow.com/questions/9959727/proto-vs-prototype-in-javascript)
+* [dmitrysoshnikov blog](dmitrysoshnikov.com/ecmascript/javascript-the-core)
 
 
 
-
-
-useful tips about IIFE(immediately-invoked-function-expression)
-	1. website: benalman.com/news/2010/11/immediately-invoked-function-expression
-	2. some critical concepts about how to understand iife:
-		a. in javascript, every function, when invoked, creates a new execution context (Ben Alman)
-		b. We are not assigning a function to myObject. We are assigning the result of invoking that function. 
-							-------(<Javascript: The Good parts> p37-Closure, Douglas Crockford)
-		c. 
+#### useful tips about IIFE(immediately-invoked-function-expression)  
+1. [benalman blog](benalman.com/news/2010/11/immediately-invoked-function-expression)
+2. some critical concepts about how to understand iife:  
+	a. in javascript, every function, when invoked, creates a new execution context (Ben Alman)  
+	b. We are not assigning a function to myObject. We are assigning the result of invoking that function.  
+		-------(Javascript: The Good parts p37-Closure, Douglas Crockford)  
 
 
 
-
-
-browserify and bootstrap (jQuery is no defined)
-    website: https://github.com/atom/electron/issues/254
+#### browserify and bootstrap (jQuery is no defined): [related issue](https://github.com/atom/electron/issues/254)
 
 
 
+#### upgrade nodejs
+* [history versions](https://nodejs.org/dist)
+
+#### switch nodejs versions
+* [installation instructions](https://github.com/creationix/nvm#installation)
+* useful nvm command
+```
+nvm --version
+nvm ls
+nvm use node vx.x.x
+nvm install node vx.x.x
+```
+* possible problems  
+  * permission denied: switch to root account
+  * command nvm not found: if `~/.zshrc`/`~/.bash_profile`/`~/.bashrc` configured, try restarting terminal
 
 
 
-upgrade nodejs
-	website: davidwalsh.name/upgrade-nodejs
-			 https://nodejs.org/dist			all history versions of nodejs
-
-
-
-
-node.js: how require('module') works / module-mechanism
-    website: http://fredkschott.com/post/2014/06/require-and-the-module-system/
+#### nodejs: how require('module') works / module-mechanism
+* help site: http://fredkschott.com/post/2014/06/require-and-the-module-system/
              http://www.infoq.com/cn/articles/nodejs-module-mechanism
-         how to deal with nodejs cycle call situation when using require('module')
-    website: https://nodejs.org/api/modules.html#modules_cycles 
+    how to deal with nodejs cycle call situation when using require('module')
+    nodejs cycle call [sample](https://nodejs.org/api/modules.html#modules_cycles)
 
 
 
@@ -164,15 +166,5 @@ how to use node.js on windows
 
 
 
-###switch node versions
-[install nvm](https://github.com/creationix/nvm#installation)
-* useful nvm command
-```
-nvm --version
-nvm ls
-nvm use node vx.x.x
-nvm install node vx.x.x
-```
-* possible problems  
-** permission denied: switch to root account
-** command nvm not found: if `~/.zshrc`/`~/.bash_profile`/`~/.bashrc` configured, try restarting terminal
+
+javascript: [remove duplicates from array](http://stackoverflow.com/questions/9229645/remove-duplicates-from-javascript-array/9229821)
