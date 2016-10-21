@@ -1,18 +1,17 @@
-js type reliable check, see [here](toddmotto.com/understanding-javascript-type-and-reliable-type-checking)  
+js type reliable check, see [here](http://toddmotto.com/understanding-javascript-type-and-reliable-type-checking)  
 
 explanation of prototype and __proto__:
-* [stackoverflow](stackoverflow.com/questions/9959727/proto-vs-prototype-in-javascript)
-* [dmitrysoshnikov blog](dmitrysoshnikov.com/ecmascript/javascript-the-core)
+* [stackoverflow](http://stackoverflow.com/questions/9959727/proto-vs-prototype-in-javascript)
+* [dmitrysoshnikov blog](http://dmitrysoshnikov.com/ecmascript/javascript-the-core)
 
 
 
 #### useful tips about IIFE(immediately-invoked-function-expression)  
-1. [benalman blog](benalman.com/news/2010/11/immediately-invoked-function-expression)
+1. [benalman blog](http://benalman.com/news/2010/11/immediately-invoked-function-expression)
 2. some critical concepts about how to understand iife:  
 	a. in javascript, every function, when invoked, creates a new execution context (Ben Alman)  
 	b. We are not assigning a function to myObject. We are assigning the result of invoking that function.  
 		-------(Javascript: The Good parts p37-Closure, Douglas Crockford)  
-
 
 
 #### browserify and bootstrap (jQuery is no defined): [related issue](https://github.com/atom/electron/issues/254)
@@ -38,17 +37,16 @@ nvm install node vx.x.x
 
 
 #### nodejs: how require('module') works / module-mechanism
-* help site: http://fredkschott.com/post/2014/06/require-and-the-module-system/
-             http://www.infoq.com/cn/articles/nodejs-module-mechanism
-    how to deal with nodejs cycle call situation when using require('module')
-    nodejs cycle call [sample](https://nodejs.org/api/modules.html#modules_cycles)
-
+* ref site:
+  * http://fredkschott.com/post/2014/06/require-and-the-module-system/
+  * http://www.infoq.com/cn/articles/nodejs-module-mechanism  
+* how to deal with nodejs cycle call situation when using require('module')
+  * nodejs cycle call [sample](https://nodejs.org/api/modules.html#modules_cycles)
 
 
 
 how to deal with browserify duplicate dependency (dedupe)
     website: https://github.com/substack/node-browserify/issues/1181
-
 
 
 
