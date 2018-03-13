@@ -1,6 +1,8 @@
 Q1：	是否遇到过浏览器的兼容性问题？有没有什么令你印象深刻的兼容性问题？
 
-A：	safari 和 firefox/chrome 在 data object 上的实现不一致。具体表现为 new Date('date') 中的 date 的格式问题
+A:
+* safari 和 firefox/chrome 在 data object 上的实现不一致。具体表现为 new Date('date') 中的 date 的格式问题
+* html 5 滚动穿透。产生原因/safari/方案/方案原理
 
 
 Q2:	是否遇到过移动端面的兼容性问题？有没有什么令你印象深刻的兼容性问题？
@@ -69,5 +71,11 @@ Q21：	ios html 的滚动穿透问题是因何引起的？相关解决方案/库
 
 
 Q22：	flux 是什么？有什么特点？
+
+
+Q20:  你知道正则引擎吗？DFA、NFA/POSIX_NFA 的区别？
+A:    
+
+
 
 react/性能/安全/兼容性
