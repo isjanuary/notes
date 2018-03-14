@@ -8,6 +8,7 @@ A:
 Q2:	是否遇到过移动端面的兼容性问题？有没有什么令你印象深刻的兼容性问题？
 
 A：	滚动条/拖拽。需要更多具体细节
+	比如 iPad 下，横竖屏切换时，要保证 UI 显示正确的尺寸。window.addEventListener('orientationchange', callback)
 
 
 Q3:	跨域有哪几种方式？你知道几种？
