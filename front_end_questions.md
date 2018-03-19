@@ -7,17 +7,20 @@ A:
 
 Q2:	是否遇到过移动端面的兼容性问题？有没有什么令你印象深刻的兼容性问题？
 
-A：	滚动条/拖拽。需要更多具体细节
-	比如 iPad 下，横竖屏切换时，要保证 UI 显示正确的尺寸。window.addEventListener('orientationchange', callback)
+* 滚动条/拖拽。需要更多具体细节
+* 比如 iPad 下，横竖屏切换时，要保证 UI 显示正确的尺寸。window.addEventListener('orientationchange', callback)
 
 
 Q3:	跨域有哪几种方式？你知道几种？
 
-A:	jsonp/后台设置 CORS Access-Control-Allow-Origin/iframe 作代理(3 种)/postMessage
+1. jsonp。限制：只能适用于 get 方法
+2. 后台设置 CORS Access-Control-Allow-Origin。但 Access-Control-Allow-Origin，只能使用 \*/完整的 url。因此如果需要针对特定的 url 采用特定的跨预策略，可以使用 request header 里的 referer 获取到访问源的 url，并依此来判断
+3. postMessage
+4. iframe 作代理(3 种)，利用 src tag 的跨域能力
+5. 利用 nginx 作反向代理
 
 
-
-Q4:	不同跨域方式的区别？
+Q4:	不同子域之间，如果设置 domain.name = '主域'，那么子域时间是否是同域？
 
 
 Q5:	你知道洋葱圈模型吗？
@@ -42,6 +45,10 @@ Q11:	性能问题：雅虎性能优化34条
 
 
 Q12:	闭包  什么是闭包？早期的闭包一般有什么应用？
+* 闭包是一个可以读取其他函数中变量的函数。而在 javascript 中，只有函数的子函数才可以读取外部的局部变量，因此可以简单理解成函数内部的函数。
+* 用途：读取函数内部的变量
+* 用途：让变量一直保持在内存中
+* http://blog.csdn.net/qq_34986769/article/details/52171174
 
 
 Q13:	原型链
@@ -56,7 +63,7 @@ Q15：	jQuery 上有完整的生态，如果 React 上没有相应的库，有�
 Q16：	你用过node/mongodb，但是 mongodb 没有 mySQL 那样的锁机制，如果用多个用户对数据做操作，你是怎么解决 mongodb 类似的锁的问题的
 
 
-Q17：	parent.prototype.a, child.prototype.a，请问 this.a 的寻址过程
+Q17：	parent.prototype.a, child.prototype.a，请问 this.a 的内存寻址过程
 
 
 Q18：	输入 url 以后，具体都发生了些什么？如资源如何加载等等
@@ -65,7 +72,7 @@ Q18：	输入 url 以后，具体都发生了些什么？如资源如何加载�
 Q19：	webpack 和 browserify 你都用过，有什么区别？webpack 的机制是什么，有什么优势？browserify 的机制是什么，底层实现？
 
 
-Q20：	webpack 编译文件时，如果文件过多，如何优化？编译上要做些什么处理？
+Q20：	webpack 编译文件时，如果文件过多，如何优化？编译上要做些什么处理？如何减少最终打包文件的体积？
 
 
 Q21：	ios html 的滚动穿透问题是因何引起的？相关解决方案/库的底层方案原理有没有了解过？
@@ -74,9 +81,19 @@ Q21：	ios html 的滚动穿透问题是因何引起的？相关解决方案/库
 Q22：	flux 是什么？有什么特点？
 
 
-Q20:  你知道正则引擎吗？DFA、NFA/POSIX_NFA 的区别？
-A:    
+Q23:  你知道正则引擎吗？DFA、NFA/POSIX_NFA 的区别？
+* Javascript 用的是 Traditional NFA，即传统的 NFA。
+* 贪婪模式，或者叫忽略优先量词。形如 {}?、\*?、??、+?
+* 前向查找，或者叫正向环视。形如 (?=exp)、(?!exp)
+* 零宽表达式。匹配后返回的是位置，不占用字符，或者匹配结果**不保存**在最终结果里面的，叫零宽表达式
+* 控制权与传动。控制权的传动指的是正则表达式每个表达式的传动
 
+
+Q24:  AMD 规范/CMD 规范
+
+
+
+Q25：  undefined vs null
 
 
 react/性能/安全/兼容性
