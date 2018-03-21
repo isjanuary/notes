@@ -123,7 +123,7 @@ Q26-1:	window.onhashchange 是什么？如何工作？它和监听 history.pushS
 
 * onhashchange 是监听 url 的 hash 值是否变化，具体来说，如果 url 只有 # 后面的锚点发生了变化，也就是 hash 变化了，会触发 hashchange。
 * pushState 的 hack 监听方法会监听所有的 pushState 的指令，但 onhashchange 只会监听到特定的 pushState 动作，也就是 pushState 的第三个参数 url 只改变 url # 后面的 hash 值的时候
-* onpopstate 在浏览器 a) 前进/后退 b) 锚点改变 时都会触发
+* onpopstate 在浏览器 a) 前进/后退 b) history.go/back/forward 调用 c) hashchange/锚点改变 时都会触发
 
 
 如果管理 history 的变化？
