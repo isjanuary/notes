@@ -36,6 +36,10 @@ Q8:	AOP
 
 
 Q9:	安全问题 XSS/CSRF
+* xss，跨站脚本攻击，通过在 url 中插入特殊字符串，如 script 标签等，注入恶意脚本。解决方案是
+1. encode 特殊字符，如 <>&，再做 decode 整个 url
+2. 如果是富文本，可以使用白名单的方式。什么是白名单？就是指只允许特定的标签，或其他内容，按照特定的格式呈现，超出该限制一律禁止。
+* csrf 跨站请求伪造
 
 
 Q10:	事件捕获/事件冒泡 不同点，哪些事件不能事件捕获
@@ -96,8 +100,31 @@ Q24:  AMD 规范/CMD 规范
 Q25： undefined vs null
 
 
-0320 蚂蚁金服补充
-内部有否有过自动化测试工具？UI 自动化测试工具呢？
+Q26:  如何监听 history.pushState ？
+
+h5 没有提供官方接口来监听 history.pushState。但可以 hack 实现
+```
+function (history) {
+  var pushState = history.pushState
+  history.pushState = function (state) {
+  	if (typeof history.onpushstate === 'function') {
+			history.onpushstate({state: state})
+  	}
+
+ 		// ... whatever else you want to do
+    // maybe call onhashchange e.handler
+  	return pushState.apply(history, arguments)
+  }
+}(window.history)
+```
+
+
+Q26-1:	window.onhashchange 是什么？如何工作？它和监听 history.pushState 的方法有什么区别？onpopstate 呢？
+
+* onhashchange 是监听 url 的 hash 值是否变化，具体来说，如果 url 只有 # 后面的锚点发生了变化，也就是 hash 变化了，会触发 hashchange。
+* pushState 的 hack 监听方法会监听所有的 pushState 的指令，但 onhashchange 只会监听到特定的 pushState 动作，也就是 pushState 的第三个参数 url 只改变 url # 后面的 hash 值的时候
+* onpopstate 在浏览器 a) 前进/后退 b) 锚点改变 时都会触发
+
 
 如果管理 history 的变化？
 
