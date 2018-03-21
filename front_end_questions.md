@@ -93,7 +93,13 @@ Q24:  AMD 规范/CMD 规范
 
 
 
-Q25：  undefined vs null
+Q25： undefined vs null
+
+
+0320 蚂蚁金服补充
+内部有否有过自动化测试工具？UI 自动化测试工具呢？
+
+如果管理 history 的变化？
 
 
 react/性能/安全/兼容性
