@@ -129,4 +129,8 @@ Q26-1:	window.onhashchange 是什么？如何工作？它和监听 history.pushS
 如果管理 history 的变化？
 
 
+0322_众安保险面试补充
+非受控的 select 组件是如何管理 state 的？
+
+
 react/性能/安全/兼容性
