@@ -129,6 +129,70 @@ Q26-1:	window.onhashchange 是什么？如何工作？它和监听 history.pushS
 如果管理 history 的变化？
 
 
+Q27：react 的 DOM tree 是怎么样的？什么是虚拟 DOM tree？react 的两棵 DOM tree
+
+
+Q28: for-in 是什么？for-in 用在数组上什么效果？for-of 是什么？数组/对象上分别是什么效果？
+* for-in 遍历一个对象的所有**可枚举属性**。应用在对象上，每次迭代的元素是对象的键(key)
+* for-in 用在数组上，如 for (let ele in array)，迭代的每个元素 ele 是 array 的索引，或者叫下标。因为数组本身就是一个对象，所以它的每个索引可以看作一个是可枚举属性，具体来说就是对象中的某个 key。严格来说 for-in 不应该应用在数组上，因为顺序在数组中很重要，数组本质上是可枚举属性是整数的对象，而把 for-in 应用在数组上，不能够保证顺序与预期一致，因为 for-in 每次迭代中可枚举属性的值是依赖上下文的。若需要迭代数组，应该使用 for 的整数引用做循环，或者使用 Array 的 forEach 方法
+* for-of 在可迭代对象上创建一个迭代循环，每次迭代中的元素是属性对应的值，而不是属性本身
+* for-of 应用在对象上，要看对象本身是否是可迭代的，因为 for-of 可能应用在可迭代对象上
+
+
+Q29：什么是可枚举属性？
+
+
+
+#### code understanding
+Q1:
+```
+var name = "The Window";
+
+var object = {
+　　name : "My Object",
+　　getNameFunc : function(){
+　　　　return function(){
+　　　　　　return this.name;
+　　　　};
+　　}
+};
+
+alert(object.getNameFunc()());
+```
+这段代码输出什么结果？
+
+
+Q2:
+```
+var name = "The Window";
+
+var object = {
+　　name : "My Object",
+　　getNameFunc : function(){
+　　　　var that = this;
+　　　　return function(){
+　　　　　　return that.name;
+　　　　};
+　　}
+};
+
+alert(object.getNameFunc()());
+```
+这段代码输出什么结果？
+
+
+Q3:
+```
+const arr = [4, 'str', '029', 2039, { key: 'val' }]
+for (let ele in arr) {
+	console.log(ele)
+}
+```
+这段代码输出什么？
+
+
+
+
 0322_众安保险面试补充
 非受控的 select 组件是如何管理 state 的？
 
