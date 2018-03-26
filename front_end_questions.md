@@ -107,13 +107,13 @@ h5 没有提供官方接口来监听 history.pushState。但可以 hack 实现
 function (history) {
   var pushState = history.pushState
   history.pushState = function (state) {
-  	if (typeof history.onpushstate === 'function') {
-			history.onpushstate({state: state})
-  	}
+    if (typeof history.onpushstate === 'function') {
+      history.onpushstate({state: state})
+    }
 
- 		// ... whatever else you want to do
+    // ... whatever else you want to do
     // maybe call onhashchange e.handler
-  	return pushState.apply(history, arguments)
+    return pushState.apply(history, arguments)
   }
 }(window.history)
 ```
