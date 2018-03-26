@@ -195,6 +195,7 @@ for (let ele in arr) {
 
 0322_众安保险面试补充
 非受控的 select 组件是如何管理 state 的？
+doctype 是什么？有什么用？
 
 
 react/性能/安全/兼容性
