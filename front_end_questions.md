@@ -16,7 +16,7 @@ Q3:	跨域有哪几种方式？你知道几种？
 1. jsonp。限制：只能适用于 get 方法
 2. 后台设置 CORS Access-Control-Allow-Origin。但 Access-Control-Allow-Origin，只能使用 \*/完整的 url。因此如果需要针对特定的 url 采用特定的跨预策略，可以使用 request header 里的 referer 获取到访问源的 url，并依此来判断
 3. postMessage
-4. iframe 作代理(3 种)，利用 src tag 的跨域能力
+4. iframe 作代理(3 种)，利用 src tag 的跨域能力。如使用 hash、使用 window.name、
 5. 利用 nginx 作反向代理
 
 
@@ -82,7 +82,7 @@ Q20：	webpack 编译文件时，如果文件过多，如何优化？编译上�
 Q21：	ios html 的滚动穿透问题是因何引起的？相关解决方案/库的底层方案原理有没有了解过？
 
 
-Q22：	flux 是什么？有什么特点？
+Q22：	flux 是什么？有什么特点？核心思想/概念 等等
 
 
 Q23:  你知道正则引擎吗？DFA、NFA/POSIX_NFA 的区别？
@@ -136,10 +136,21 @@ Q28: for-in 是什么？for-in 用在数组上什么效果？for-of 是什么？
 * for-in 遍历一个对象的所有**可枚举属性**。应用在对象上，每次迭代的元素是对象的键(key)
 * for-in 用在数组上，如 for (let ele in array)，迭代的每个元素 ele 是 array 的索引，或者叫下标。因为数组本身就是一个对象，所以它的每个索引可以看作一个是可枚举属性，具体来说就是对象中的某个 key。严格来说 for-in 不应该应用在数组上，因为顺序在数组中很重要，数组本质上是可枚举属性是整数的对象，而把 for-in 应用在数组上，不能够保证顺序与预期一致，因为 for-in 每次迭代中可枚举属性的值是依赖上下文的。若需要迭代数组，应该使用 for 的整数引用做循环，或者使用 Array 的 forEach 方法
 * for-of 在可迭代对象上创建一个迭代循环，每次迭代中的元素是属性对应的值，而不是属性本身
-* for-of 应用在对象上，要看对象本身是否是可迭代的，因为 for-of 可能应用在可迭代对象上
+* for-of 应用在对象上，要看对象本身是否是可迭代的，因为 for-of 只能应用在可迭代对象上
 
 
 Q29：什么是可枚举属性？
+
+
+
+Q30-1: url 字符编码要注意什么?  
+A: 为了防止 xss，有些字符需要做 encode  
+Q30-2: 哪些字符需要 encode ?  
+A: 比较典型的像 <、>、& 这些，它们能向页面插入 script tag，从而使黑客获得插入脚本的能力。  
+Q30-3: 黑客怎样通过 xss 进行攻击？  
+A: 比如说插入一个 script tag、或者是 img tag，利用标签 src 本身的跨域能力，就可以加载黑客服务器上的入侵脚本  
+Q30-4: 哪些字符不能被 encode ? 或者问 encodeURI 和 encodeURIComponent 的区别  
+A: 包含三个部分。第一部分是大小写字母，数字，不能被 encode；第二部分是不属于 url 的特殊字符，比如 ()\_\. 等等；第三部分是 url 里的特殊字符，比如 / : ? = & # @ 等等。第三部分的字符可以被 encodeURIComponent encode，但是不能被 encodeURI encode，其他两块的字符都不能被这两个方法 encode
 
 
 
