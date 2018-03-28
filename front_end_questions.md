@@ -121,9 +121,10 @@ function (history) {
 
 Q26-1:	window.onhashchange 是什么？如何工作？它和监听 history.pushState 的方法有什么区别？onpopstate 呢？
 
-* onhashchange 是监听 url 的 hash 值是否变化，具体来说，如果 url 只有 # 后面的锚点发生了变化，也就是 hash 变化了，会触发 hashchange。
-* pushState 的 hack 监听方法会监听所有的 pushState 的指令，但 onhashchange 只会监听到特定的 pushState 动作，也就是 pushState 的第三个参数 url 只改变 url # 后面的 hash 值的时候
-* onpopstate 在浏览器 a) 前进/后退 b) history.go/back/forward 调用 c) hashchange/锚点改变 时都会触发
+* onhashchange 是监听 url 的 hash 值是否变化，具体来说，如果 url 只有 # 后面的锚点发生了变化，也就是 hash 变化了，会触发 hashchange。注意，pushState 绝不会触发 hashchange，即使 pushState 的 url 只修改了 hash 值。
+* pushState 的 hack 监听方法会监听所有的 pushState 的指令，但 onhashchange 只会监听 hashchange，pushState 导致 hash 变化不会监听到
+* onpopstate 在浏览器 a) 前进/后退 b) history.go/back/forward 调用 c) hashchange/锚点改变 时都会触发。pushState 导致的 hashchange 不会触发 popstate
+* pushState 需要有一个参数，第一个参数是 stateObj，会修改 history 的 state 对象；第二个参数是 title，目前没用；第三参数是 url 的路径，相对路径、绝对路径都行，相对路径会把 url path 及之后的部分整体替换掉，绝对路径是整体替换，但要注意，无论是绝对路径，还是相对路径，必须和当前 url 是同源的  
 
 
 如果管理 history 的变化？
@@ -148,8 +149,8 @@ A: 为了防止 xss，有些字符需要做 encode
 Q30-2: 哪些字符需要 encode ?  
 A: 比较典型的像 <、>、& 这些，它们能向页面插入 script tag，从而使黑客获得插入脚本的能力。  
 Q30-3: 黑客怎样通过 xss 进行攻击？  
-A: 比如说插入一个 script tag、或者是 img tag，利用标签 src 本身的跨域能力，就可以加载黑客服务器上的入侵脚本  
-Q30-4: 哪些字符不能被 encode ? 或者问 encodeURI 和 encodeURIComponent 的区别  
+A: 比如说插入一个 script tag、或者是 img tag，利用标签 src 本身的跨域能力，就可以加载黑客服务器上的入侵脚本。脚本可以监听登录框的用户密码输入，或是埋钓鱼链接、在一些跳转链接后面隐藏其他 iframe、img 之类的
+Q30-4: 哪些字符不能被 encode ? 或者问 encodeURI 和 encodeURIComponent 的区别  
 A: 包含三个部分。第一部分是大小写字母，数字，不能被 encode；第二部分是不属于 url 的特殊字符，比如 ()\_\. 等等；第三部分是 url 里的特殊字符，比如 / : ? = & # @ 等等。第三部分的字符可以被 encodeURIComponent encode，但是不能被 encodeURI encode，其他两块的字符都不能被这两个方法 encode
 
 
