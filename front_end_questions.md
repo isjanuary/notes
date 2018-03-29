@@ -154,8 +154,10 @@ Q30-4: 哪些字符不能被 encode ? 或者问 encodeURI 和 encodeURIComponent
 A: 包含三个部分。第一部分是大小写字母，数字，不能被 encode；第二部分是不属于 url 的特殊字符，比如 ()\_\. 等等；第三部分是 url 里的特殊字符，比如 / : ? = & # @ 等等。第三部分的字符可以被 encodeURIComponent encode，但是不能被 encodeURI encode，其他两块的字符都不能被这两个方法 encode
 
 
+Q31: flexbox 详解/盒模型详解
 
-#### code understanding
+
+### code understanding
 Q1:
 ```
 var name = "The Window";
