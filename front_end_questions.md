@@ -192,10 +192,24 @@ foo.call(false) === false	// true, 非严格模式下，同 str/number
 ```
 
 Q38: 箭头函数和 es5 的 function 函数有什么区别？
-* 箭头函数没有自己的 this, arguments, 没有 new 操作符
+* 箭头函数没有自己的 this, arguments, 没有 new 操作符，没有 prototype 属性
 * 箭头函数没有 generator 用法, 也就是没有 yield
-那箭头函数的 this 来自哪里？下面代码的输出结果是什么？
-* 箭头函数的 this 使用的是上下文的 this。举个例子：
+* 如果是箭头函数，严格模式中与 this 相关的规则会被忽略，如
+```
+'use strict'
+var fArrow = () => {
+  console.log(this === window);	// true
+}
+fArrow()
+---------------------------------------
+'use strict'
+var fNormal = function() {
+  console.log(this === undefined);	// true
+}
+fNormal()
+```
+那箭头函数的 this 来自哪里？下面代码的输出结果是什么？  
+* 箭头函数的 this 使用的是**执行上下文**的 this。举个例子：
 ```
 function foo() {
   this.cnt = 0;
