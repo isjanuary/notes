@@ -178,6 +178,35 @@ Q36: 箭头函数和 es5 的 function 有什么区别？
 或者和我目前情况相近，技术上比较欠缺，基础知识不扎实，技术面明显成问题的，可以问些如何成长之类的问题，如：
 * 您觉得怎样可以真理深入理解原理，快速提升？分析代码，然后自己造轮子是一种比较好的方式吗？
 
+Q37: 严格模式下和非严格模式下，this 有什么区别？
+* 严格模式下，传给 this 的值不会被自动强制转化成对象，如：
+```
+'use strict'
+function foo() { return this; }
+foo() === undefined 		// true, 非严格模式下，foo() === 全局对象，浏览器环境下是 Window
+foo.call(2) === 2   		// true, 非严格模式下，foo.call(2) 应为对象，typeof foo.call(2) === 'object'
+foo.call(null) === null		// true, 非严格模式下，foo.call(null) 应为 Window 对象
+foo.call(undefined) === undefined // true, 非严格模式，同 null 的情形
+foo.call('str') === 'str'	// true, 非严格模式下，foo.call('str') 应为对象，typeof foo.call('str') === 'object'
+foo.call(false) === false	// true, 非严格模式下，同 str/number
+```
+
+Q38: 箭头函数和 es5 的 function 函数有什么区别？
+* 箭头函数没有自己的 this, arguments, 没有 new 操作符
+* 箭头函数没有 generator 用法, 也就是没有 yield
+那箭头函数的 this 来自哪里？下面代码的输出结果是什么？
+* 箭头函数的 this 使用的是上下文的 this。举个例子：
+```
+function foo() {
+  this.cnt = 0;
+  setInterval(() => {
+    this.cnt++
+    // 这里的 this 和上面的 foo 的 this 是同一个，若是 function 的话，这里的 this 就是全局对象 Window 了
+    console.log(this)	
+  }, 1000)
+}
+var f = new foo()
+```
 
 ### code understanding
 Q1:
