@@ -166,3 +166,7 @@ how to use node.js on windows
 
 
 javascript: [remove duplicates from array](http://stackoverflow.com/questions/9229645/remove-duplicates-from-javascript-array/9229821)
+
+
+#### how to remove duplicate elements from array
+https://stackoverflow.com/questions/9229645/remove-duplicate-values-from-js-array
