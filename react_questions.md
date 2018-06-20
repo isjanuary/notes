@@ -35,3 +35,6 @@
 #### forceUpdate
 
 * 如果页面的 re-render 需要依赖除 state/props 以外的数据，那么可以使用 forceUpdate 来强制 re-render 页面。但实际 coding 过程中，没有真正使用过 forceUpdate，官方也不推荐，正常情况下，所有的数据应该要么来自 state，要么来自 props，个人感觉，react 组件设计不太合理，或者真的很特殊的情况下，才会出现来自 state/props 以外的数据源，一般来讲，react 提供的数据检查机制应该够用了.
+
+* 为什么官方不鼓励在 componentWillMount 里面执行 io 操作，比如 ajax.
+* 为什么不在 componentDidMount 里面使用 setState
